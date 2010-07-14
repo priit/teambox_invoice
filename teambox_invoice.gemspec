@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://priit.mx.ee'
 
   s.required_rubygems_version = '>= 1.3.0'
-  s.files = Dir.glob("{app,lib,config}/**/*") + %w(README)
+  s.files = Dir.glob("{app,generators,lib,config}/**/*") + %w(README.md)
   s.require_paths = ['lib']
   s.rubyforge_project = 'teambox_invoice'
   s.add_runtime_dependency('pdfkit', ['~> 0.3.3'])
