@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = 'priit@mx.ee'
   s.homepage    = 'http://priit.mx.ee'
 
-  s.files = Dir['{app,generators,lib,config}/**/*', 'README*']
+  s.files = Dir['{app,generators,lib,config}/**/*', 'README*', 'LICENSE*']
   s.require_paths = ['lib']
   s.rubyforge_project = 'teambox_invoice'
   s.required_rubygems_version = '>= 1.3.0'
