@@ -11,7 +11,7 @@ Installation
 Add to your Gemfile's plugins group:
 
   group :plugins do 
-    gem 'teambox', '~> 0.1.0'
+    gem 'teambox_invoice', '~> 0.1.0'
   end
 
 Generate migration:
