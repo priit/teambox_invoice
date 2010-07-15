@@ -12,7 +12,7 @@ class InvoicesController < ApplicationController
 
   def preview
     @comments = Comment.with_hours
-    render :layout => 'print'
+    render :layout => 'invoice/print'
   end
 
   def new
