@@ -1,4 +1,3 @@
-
 Teambox Invoice
 ===============
 
@@ -10,12 +9,12 @@ Installation
 
 Add to your Gemfile's plugins group:
 
-  group :plugins do 
-    gem 'teambox_invoice', '~> 0.1.0'
-  end
+      group :plugins do 
+        gem 'teambox_invoice', '~> 0.1.0'
+      end
 
 Generate migration:
 
-  script/generate teambox_invoice_migration
-  rake db:migrate
+      script/generate teambox_invoice_migration
+      rake db:migrate
 
