@@ -1,0 +1,38 @@
+en:
+  shared:
+    project_navigation:
+      invoices: Invoices
+
+  invoices:
+    index:
+      new: New Invoice
+      new_from: New
+      edit: Edit
+      pdf: .pdf
+    fields:
+      title: Title
+      from: From
+      client: Client
+      nr: Nr
+      ccy: ccy
+      due_at: Due at
+    new:
+      submit: Create
+    edit:
+      update: Update
+    show:
+      preview: Preview
+      pdf: .pdf
+    preview:
+      date: Date
+      task: Task
+      notes: Notes
+      hours: Hours
+      fee: Fee
+      sum: Sum
+      vat: VAT
+      total: TOTAL
+      title: Invoice
+      due_date: Due date
+      nr: Nr
+
