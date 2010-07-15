@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,generators,lib,config}/**/*', 'README*']
   s.require_paths = ['lib']
-  s.rubyforge_project = nil
+  s.rubyforge_project = 'teambox_invoice'
   s.required_rubygems_version = '>= 1.3.0'
   s.add_runtime_dependency('pdfkit', ['~> 0.3.3'])
 end
