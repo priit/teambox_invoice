@@ -1,0 +1,5 @@
+%p= @invoice.name
+
+- content_for :column do
+  = link_to t('.preview'), preview_invoice_path(@invoice)
+  = link_to t('.pdf'), preview_invoice_path(@invoice, :format => :pdf)

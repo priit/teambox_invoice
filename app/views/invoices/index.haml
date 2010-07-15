@@ -1,0 +1,12 @@
+- if @invoices.present?
+  %ul
+    - @invoices.each do |invoice|
+      %li
+        = link_to invoice.name, invoice 
+        = link_to t('.pdf'), preview_invoice_path(invoice, :format => :pdf)
+        = link_to t('.edit'), edit_invoice_path(invoice)
+        = link_to t('.new_from'), new_invoice_path(:from => invoice.id)
+
+
+- content_for :column do
+  = link_to t('.new'), new_invoice_path

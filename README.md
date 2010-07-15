@@ -16,3 +16,4 @@ Generate migration:
 
   script/generate teambox_invoice_migration
   rake db:migrate
+
