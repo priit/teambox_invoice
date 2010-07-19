@@ -4,11 +4,12 @@ class CreateInvoiceTables < ActiveRecord::Migration
       t.integer   :project_id
       t.string    :title
       t.string    :nr
-      t.text      :from
-      t.text      :client
-      t.decimal   :price, :precision => 8, :scale => 2, :default => 0.0
+      t.text      :provider_info
+      t.text      :client_info
+      t.decimal   :default_fee, :precision => 8, :scale => 2
+      t.decimal   :price,       :precision => 8, :scale => 2
+      t.decimal   :vat,         :precision => 8, :scale => 2
       t.string    :ccy
-      t.integer   :vat
       t.text      :notes
       t.datetime  :due_at
       t.datetime  :issued_at
@@ -18,9 +19,12 @@ class CreateInvoiceTables < ActiveRecord::Migration
     create_table :invoice_items do |t|
       t.integer   :invoice_id
       t.integer   :comment_id
-      t.text      :body
-      t.text      :body_html
-      t.decimal   :price, :precision => 8, :scale => 2, :default => 0.0
+      t.string    :title
+      t.string    :notes
+      t.float     :hours
+      t.decimal   :fee,   :precision => 8, :scale => 2
+      t.decimal   :price, :precision => 8, :scale => 2
+      t.datetime  :issued_at
       t.timestamps
     end
   end
