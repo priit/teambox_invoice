@@ -10,15 +10,23 @@ en:
       edit: Edit
       pdf: .pdf
     fields:
+      default_ccy: '€'
+      default_notes: "If you have any question about this invoice, please contact.\r\nIt has been great working with you and looking forward to continue!"
       title: Title
-      from: From
-      client: Client
+      provider_info: Provider info
+      client_info: Client info
       nr: Nr
       ccy: ccy
       due_at: Due at
+      price: Price
+      vat: VAT
+      notes: Notes
+      default_fee: Default fee
     new:
+      title: New Invoice
       submit: Create
     edit:
+      title: Edit Invoice
       update: Update
     show:
       preview: Preview
@@ -35,4 +43,10 @@ en:
       title: Invoice
       due_date: Due date
       nr: Nr
-
+  invoice_items:
+    fields:
+      issued_at: Date
+      title: Task
+      notes: Notes
+      hours: Hours
+      fee: Fee
