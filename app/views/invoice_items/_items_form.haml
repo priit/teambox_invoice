@@ -1,0 +1,14 @@
+%table{:cellspace => 0}
+  %tr
+    %th= t('invoice_items.fields.title')
+    %th= t('invoice_items.fields.notes')
+    %th= t('invoice_items.fields.hours')
+    %th= t('invoice_items.fields.fee')
+    %th= t('invoice_items.fields.issued_at')
+  - f.fields_for :items do |item|
+    %tr
+      %td= item.text_field :title
+      %td= item.text_field :notes
+      %td= item.text_field :human_hours, :value => friendly_hours_value(item.object.hours), :size => 5
+      %td= item.text_field :fee, :size => 3
+      %td= item.date_select :issued_at, :order => [:day, :month]
