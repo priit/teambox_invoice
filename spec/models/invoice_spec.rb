@@ -31,6 +31,11 @@ describe Invoice do
       @invoice.vat.should == 0.2
     end
 
+    it 'should convert vat_integer string to integer' do
+      @invoice.vat_integer = '20'
+      @invoice.vat_integer.should == 20
+    end
+
     it 'should return vat integer instead decimal' do
       @invoice.vat = 0.2
       @invoice.vat_integer.should == 20

@@ -50,7 +50,7 @@ class Invoice < ActiveRecord::Base
   end
 
   def vat_integer=(value)
-    write_attribute(:vat, value / 100.0)
+    write_attribute(:vat, value.to_i / 100.0)
   end
 
   def total_netprice
