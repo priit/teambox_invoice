@@ -2,6 +2,7 @@ class InvoicesController < ApplicationController
   unloadable
   skip_before_filter :load_project
   before_filter :load_invoice, :only => [:show, :preview, :edit, :update, :destroy]
+  before_filter :load_comments, :only => [:new]
 
   def index
     @invoices = Invoice.all
@@ -11,12 +12,11 @@ class InvoicesController < ApplicationController
   end
 
   def preview
-    @comments = Comment.with_hours
     render :layout => 'invoice/print'
   end
 
   def new
-    @invoice = Invoice.new_or_from(params[:from])
+    @invoice = Invoice.new_or_from(params[:from], :items => @comments)
   end
 
   def edit
@@ -44,5 +44,9 @@ class InvoicesController < ApplicationController
 
   def load_invoice
     @invoice = Invoice.find(params[:id])
+  end
+
+  def load_comments
+    @comments = Comment.with_hours # TODO scope with project
   end
 end
