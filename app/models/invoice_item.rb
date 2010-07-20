@@ -6,7 +6,7 @@ class InvoiceItem < ActiveRecord::Base
   validates_presence_of :hours, :fee
 
 
-  # TODO move this behaviour to lib instead
+  # TODO move this behaviour to lib instead; code borrowed from Teambox source
   #
   # Instead of using the float 'hours' field in a form, we use 'human_hours'
   # and we can take:
