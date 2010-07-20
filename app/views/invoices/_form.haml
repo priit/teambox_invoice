@@ -4,6 +4,9 @@
   = f.text_field :title
   = f.label t('invoices.fields.nr')
   = f.text_field :nr, :size => 8
+.field
+  = f.label t('invoices.fields.issued_at') 
+  = f.date_select :issued_at, :order => [:day, :month, :year], :start_year => Time.now.year
   = f.label t('invoices.fields.due_at') 
   = f.date_select :due_at, :order => [:day, :month, :year], :start_year => Time.now.year
 

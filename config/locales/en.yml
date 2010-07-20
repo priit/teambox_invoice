@@ -22,6 +22,7 @@ en:
       vat: VAT
       notes: Notes
       default_fee: Default fee
+      issued_at: Issued at
     new:
       title: New Invoice
       submit: Create
