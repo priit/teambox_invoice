@@ -43,7 +43,7 @@ en:
       total: TOTAL
       title: Invoice
       due_date: Due date
-      nr: Nr
+      nr: '#{{number}}'
   invoice_items:
     fields:
       issued_at: Date

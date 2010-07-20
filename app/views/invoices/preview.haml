@@ -1,11 +1,13 @@
 .invoice
-  .from= simple_format(@invoice.provider_info)
-  .client= simple_format(@invoice.client_info)
+  .addresses
+    .provider_info= simple_format(@invoice.provider_info)
+    .client_info= simple_format(@invoice.client_info)
   .title
-    %h1= t('.title')
+    %h1
+      = t('.title') 
+      %span= t('.nr', :number => @invoice.nr)
   .meta
     %ul
-      %li= t('.nr') + ': ' + @invoice.nr
       %li= t('.date') + ': ' + @invoice.created_at.strftime('%d.%m.%Y') #TODO localize
       %li= t('.due_date') + ': ' + @invoice.due_at.strftime('%d.%m.%Y') #TODO lacalize
   .items
