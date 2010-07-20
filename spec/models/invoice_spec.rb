@@ -25,6 +25,16 @@ describe Invoice do
       @invoice.common_attributes.keys.sort.should == 
         %w(ccy client_info nr price provider_info title vat)
     end
+
+    it 'should store vat decimal instead of integer' do
+      @invoice.vat_integer = 20
+      @invoice.vat.should == 0.2
+    end
+
+    it 'should return vat integer instead decimal' do
+      @invoice.vat = 0.2
+      @invoice.vat_integer.should == 20
+    end
   end
 
   describe 'a new invoice from older invoice with new items' do

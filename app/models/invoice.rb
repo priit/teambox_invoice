@@ -45,6 +45,14 @@ class Invoice < ActiveRecord::Base
     end
   end
 
+  def vat_integer
+    (vat * 100).to_i
+  end
+
+  def vat_integer=(value)
+    write_attribute(:vat, value / 100.0)
+  end
+
   def total_netprice
     items.map(&:price).sum
   end
