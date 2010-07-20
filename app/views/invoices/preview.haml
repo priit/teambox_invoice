@@ -20,7 +20,7 @@
           %th.sum= t('.sum')
         - @invoice.items.each do |item|
           %tr
-            %td= item.created_at.to_date.to_s(:short)
+            %td= item.issued_at.to_date.to_s(:short)
             %td= item.title
             %td= item.notes
             %td= friendly_hours_value(item.hours)
