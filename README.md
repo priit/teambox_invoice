@@ -7,11 +7,17 @@ Lightweight invoicing for Teambox.
 Installation
 ------------
 
-Add to your Gemfile's plugins group:
+NB! In heavy development at the moment, not released yet.
+
+Add to your Gemfile:
 
       group :plugins do 
-        gem 'teambox_invoice', '~> 0.1.0'
+        gem 'teambox_invoice', '~> 0.0.1'
       end
+
+Bundle updated:
+
+      bundle update
 
 Generate migration:
 
