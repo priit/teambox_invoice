@@ -1,19 +1,15 @@
-- #temp
-- total = @comments.map(&:hours).sum * @invoice.price
-- vat = total * (@invoice.vat / 100.0)
-
 .invoice
-  .from= simple_format(@invoice.from)
-  .client= simple_format(@invoice.client)
+  .from= simple_format(@invoice.provider_info)
+  .client= simple_format(@invoice.client_info)
   .title
     %h1= t('.title')
   .meta
     %ul
       %li= t('.nr') + ': ' + @invoice.nr
-      %li= t('.date') + ': ' + @invoice.created_at.strftime('%d.%m.%Y')
-      %li= t('.due_date') + ': ' + @invoice.due_at.strftime('%d.%m.%Y')
+      %li= t('.date') + ': ' + @invoice.created_at.strftime('%d.%m.%Y') #TODO localize
+      %li= t('.due_date') + ': ' + @invoice.due_at.strftime('%d.%m.%Y') #TODO lacalize
   .items
-    - if @comments.present?
+    - if @invoice.items.present?
       %table{:cellspacing => 0}
         %tr
           %th.date= t('.date')
@@ -22,26 +18,26 @@
           %th.hours= t('.hours')
           %th.fee= t('.fee')
           %th.sum= t('.sum')
-        - @comments.each do |comment|
+        - @invoice.items.each do |item|
           %tr
-            %td= comment.created_at.to_date.to_s(:short)
-            %td= comment.target.name
-            %td= comment.body
-            %td= friendly_hours_value(comment.hours)
-            %td= @invoice.price
-            %td= sprintf('%.2f', comment.hours * @invoice.price)
+            %td= item.created_at.to_date.to_s(:short)
+            %td= item.title
+            %td= item.notes
+            %td= friendly_hours_value(item.hours)
+            %td= sprintf('%.f', item.fee)
+            %td= sprintf('%.2f', item.price)
         %tr.subtotal
           %td{:colspan => 3} 
-          %td= friendly_hours_value(@comments.map(&:hours).sum)
+          %td= friendly_hours_value(@invoice.total_hours)
           %td
-          %td= sprintf('%.2f', total)
+          %td= sprintf('%.2f', @invoice.total_netprice)
         %tr.vat
           %td{:colspan => 3}
           %td.label{:colspan => 2}= "#{@invoice.vat}% #{t('.vat')}:"
-          %td= sprintf('%.2f', vat)
+          %td= sprintf('%.2f', @invoice.total_vat)
         %tr.total
           %td{:colspan => 3}
           %td.label{:colspan => 2}= t('.total') + ':'
-          %td.value= sprintf('%.2f', total + vat) + " #{@invoice.ccy}"
+          %td.value= sprintf('%.2f', @invoice.total) + " #{@invoice.ccy}"
 
     %p= simple_format(@invoice.notes)
