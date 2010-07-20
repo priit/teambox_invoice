@@ -33,7 +33,7 @@
           %td= sprintf('%.2f', @invoice.total_netprice)
         %tr.vat
           %td{:colspan => 3}
-          %td.label{:colspan => 2}= "#{@invoice.vat}% #{t('.vat')}:"
+          %td.label{:colspan => 2}= "#{@invoice.vat_integer}% #{t('.vat')}:"
           %td= sprintf('%.2f', @invoice.total_vat)
         %tr.total
           %td{:colspan => 3}
